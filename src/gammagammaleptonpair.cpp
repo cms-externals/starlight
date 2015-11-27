@@ -126,7 +126,7 @@ void Gammagammaleptonpair::twoLeptonCrossSection()
      }
 
      //normalize sgfint array
-     _signormw=_sigfint[_ReadInputnumw-1];
+     if(_ReadInputnumw > 0)_signormw=_sigfint[_ReadInputnumw-1];
      for(int i=0;i<_ReadInputnumw;i++)
      {
           _sigfint[i]=_sigfint[i]/_signormw;
