@@ -40,7 +40,7 @@
 #include "starlightconstants.h"
 #include "readinluminosity.h"
 #include "beambeamsystem.h"
-#include "randomgenerator.h"
+#include "CLHEPrandomgenerator.h"
 #include "eventchannel.h"
 #include "upcevent.h"
 #include "nBodyPhaseSpaceGen.h"

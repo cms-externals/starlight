@@ -41,7 +41,7 @@
 #include "starlightconfig.h"
 #include <cmath>
 #include <cstring>
-#include "randomgenerator.h"
+#include "CLHEPrandomgenerator.h"
 
 using namespace std;
 using namespace starlightConstants;

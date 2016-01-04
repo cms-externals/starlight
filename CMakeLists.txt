@@ -179,6 +179,17 @@ else()
 		)
 endif()
 
+# setup CLHEP
+option (ENABLE_CLHEP  "Enable compilation against " OFF)
+if(ENABLE_CLHEP)
+    find_package(CLHEP)
+    if(CLHEP_FOUND)
+      set(optionalLibs ${optionalLibs} ${CLHEP_LIBRARY})
+      option(ENABLE_CLHEP  "Compiling against CLHEP library" ON)
+    else()
+      option(ENABLE_CLHEP  "Compiling against CLHEP library" OFF)
+    endif()
+endif()
 
 # setup Pythia 8
 option (ENABLE_PYTHIA  "Enable compilation against pythia (necessary for certain processes)" OFF) 
