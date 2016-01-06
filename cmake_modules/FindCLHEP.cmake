@@ -1,0 +1,26 @@
+FIND_PATH(CLHEP_INCLUDE_DIR clhep.h /usr/include/ usr/local/include/ $ENV{CLHEPDIR}/include)
+
+FIND_LIBRARY(CLHEP_LIBRARY NAMES clhep PATHS /usr/lib /usr/lib/CLHEP /usr/local/lib $ENV{CLHEPDIR}/lib)
+
+IF (CLHEP_INCLUDE_DIR AND CLHEP_LIBRARY)
+     SET(CLHEP_FOUND TRUE)
+ENDIF (CLHEP_INCLUDE_DIR AND CLHEP_LIBRARY)
+
+
+IF (CLHEP_FOUND)
+     IF (NOT CLHEP_FIND_QUIETLY)
+        MESSAGE(STATUS "Found CLHEP: ${CLHEP_LIBRARY}")
+        MESSAGE(STATUS "Found CLHEP include: ${CLHEP_INCLUDE_DIR}")
+     ENDIF (NOT CLHEP_FIND_QUIETLY)
+ELSE (CLHEP_FOUND)
+     IF (CLHEP_FIND_REQUIRED)
+        MESSAGE(FATAL_ERROR "Could not find CLHEP. We search first in 
+the normal library paths, then in $CLHEPDIR")
+     ELSE(CLHEP_FIND_REQUIRED)
+        IF(NOT CLHEP_FIND_QUIETLY)
+           MESSAGE(STATUS "Could not find CLHEP.  We search first in 
+the normal library paths, then in $CLHEPDIR")
+        ENDIF(NOT CLHEP_FIND_QUIETLY)
+     ENDIF (CLHEP_FIND_REQUIRED)
+
+ENDIF (CLHEP_FOUND)

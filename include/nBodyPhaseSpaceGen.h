@@ -75,7 +75,7 @@
 
 #include "reportingUtils.h"
 #include "lorentzvector.h"
-#include "randomgenerator.h"
+#include "CLHEPrandomgenerator.h"
 #include "starlightconstants.h"
 
 

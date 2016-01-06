@@ -39,7 +39,7 @@
 #include "starlightconstants.h"
 #include "readinluminosity.h"
 #include "beambeamsystem.h"
-#include "randomgenerator.h"
+#include "CLHEPrandomgenerator.h"
 #include "upcevent.h"
 
 
