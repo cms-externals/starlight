@@ -180,15 +180,15 @@ else()
 endif()
 
 # setup CLHEP
-option (ENABLE_CLHEP  "Enable compilation against " OFF)
+option (ENABLE_CLHEP "Enable compilation against" OFF)
 if(ENABLE_CLHEP)
-    find_package(CLHEP)
-    if(CLHEP_FOUND)
-      set(optionalLibs ${optionalLibs} ${CLHEP_LIBRARY})
-      option(ENABLE_CLHEP  "Compiling against CLHEP library" ON)
-    else()
-      option(ENABLE_CLHEP  "Compiling against CLHEP library" OFF)
-    endif()
+	find_package(CLHEP)
+	if(CLHEP_FOUND)
+		set(optionalLibs ${optionalLibs} ${CLHEP_LIBRARY})
+		option(ENABLE_CLHEP "Compiling against CLHEP library" ON)
+	else()
+		option(ENABLE_CLHEP "Compiling against CLHEP library" OFF)
+	endif()
 endif()
 
 # setup Pythia 8
@@ -234,6 +234,7 @@ if(ENABLE_DPMJET)
 set(INCLUDE_DIRECTORIES
 	${CMAKE_SOURCE_DIR}/include
 	${PROJECT_BINARY_DIR}
+	${CLHEP_INCLUDE_DIR}
 #	${PYTHIA8_INCLUDE_DIR}
 	)
 include_directories(${INCLUDE_DIRECTORIES})
@@ -246,6 +247,7 @@ set(SOURCES
   src/beambeamsystem.cpp
   src/starlightparticle.cpp
   src/gammaaluminosity.cpp
+  src/CLHEPrandomgenerator.cpp
   src/randomgenerator.cpp
   src/nucleus.cpp
   src/eventchannel.cpp
@@ -294,13 +296,6 @@ if(ENABLE_DPMJET)
 		src/spectrumprotonnucleus.cpp
 		)
 endif()
-if(ENABLE_CLHEP)
-	set (SOURCES
-		${SOURCES}
-		src/CLHEPrandomgenerator.cpp
-		)
-	include_directories(${CLHEP_INCLUDE_DIR})
-endif()
 
 add_library(Starlib STATIC ${SOURCES})
 install(TARGETS Starlib DESTINATION "lib")
@@ -331,6 +326,7 @@ set(INCLUDES
   include/nucleus.h
   include/pythiadecayer.h
   include/PythiaStarlight.h
+  include/CLHEPrandomgenerator.h
   include/randomgenerator.h
   include/readinluminosity.h
   include/reportingUtils.h

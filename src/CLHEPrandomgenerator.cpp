@@ -37,18 +37,19 @@
 
 #include "CLHEPrandomgenerator.h"
 #include <CLHEP/Random/Randomize.h>
-#include <CLHEP/Random/Random.h>
+#include <ctime>
 
 using namespace std;
 using namespace CLHEP;
 
 void CLHEPrandomGenerator::SetSeed(unsigned int seed)
 {
-	CLHEP::HepRandom::createInstance(seed);
-	CLHEP::HepRandom::setTheSeed(seed);
+	HepRandom::createInstance();
+	HepRandom::setTheSeed(seed);
 }
 
-double randomGenerator::Rndom()
+double CLHEPrandomGenerator::Rndom(int i)
 {
-  return CLHEP::RandFlat::shoot();
+   i = 0;
+   return RandFlat::shoot();
 }
