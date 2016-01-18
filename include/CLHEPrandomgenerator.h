@@ -44,17 +44,18 @@ class CLHEPrandomGenerator
 {
 	public:
 	void SetSeed(unsigned int seed);
-	double Rndom();
+	double Rndom(int i=0);
+	CLHEPrandomGenerator(){}
+	CLHEPrandomGenerator(const CLHEPrandomGenerator &);
 	
 	private:
 	friend class Singleton<CLHEPrandomGenerator>;
-	
-	CLHEPrandomGenerator(){}
-	CLHEPrandomGenerator(const randomGenerator &);
+
+	//virtual void generateEvent(CLHEP::HepRandomEngine*) = 0;
 	
 };
 
-#define randyInstance Singleton<randomGenerator>::instance()
+#define randyInstance Singleton<CLHEPrandomGenerator>::instance()
 
 #endif  // RANDOMGENERATOR_H
 	
