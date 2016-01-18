@@ -37,6 +37,7 @@
 
 #include "CLHEPrandomgenerator.h"
 #include <CLHEP/Random/Randomize.h>
+#include <CLHEP/Random/Random.h>
 
 using namespace std;
 using namespace CLHEP;

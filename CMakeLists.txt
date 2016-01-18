@@ -294,6 +294,13 @@ if(ENABLE_DPMJET)
 		src/spectrumprotonnucleus.cpp
 		)
 endif()
+if(ENABLE_CLHEP)
+	set (SOURCES
+		${SOURCES}
+		src/CLHEPrandomgenerator.cpp
+		)
+	include_directories(${CLHEP_INCLUDE_DIR})
+endif()
 
 add_library(Starlib STATIC ${SOURCES})
 install(TARGETS Starlib DESTINATION "lib")
