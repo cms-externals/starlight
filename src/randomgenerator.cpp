@@ -36,7 +36,8 @@
 #include <cmath>
 
 #include "randomgenerator.h"
-
+#include <CLHEP/Random/Randomize.h>
+#include <ctime>
 
 using namespace std;
 

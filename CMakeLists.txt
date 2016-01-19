@@ -179,6 +179,17 @@ else()
 		)
 endif()
 
+# setup CLHEP
+option (ENABLE_CLHEP "Enable compilation against" OFF)
+if(ENABLE_CLHEP)
+	find_package(CLHEP)
+	if(CLHEP_FOUND)
+		set(optionalLibs ${optionalLibs} ${CLHEP_LIBRARY})
+		option(ENABLE_CLHEP "Compiling against CLHEP library" ON)
+	else()
+		option(ENABLE_CLHEP "Compiling against CLHEP library" OFF)
+	endif()
+endif()
 
 # setup Pythia 8
 option (ENABLE_PYTHIA  "Enable compilation against pythia (necessary for certain processes)" OFF) 
@@ -223,6 +234,7 @@ if(ENABLE_DPMJET)
 set(INCLUDE_DIRECTORIES
 	${CMAKE_SOURCE_DIR}/include
 	${PROJECT_BINARY_DIR}
+	${CLHEP_INCLUDE_DIR}
 #	${PYTHIA8_INCLUDE_DIR}
 	)
 include_directories(${INCLUDE_DIRECTORIES})
@@ -235,6 +247,7 @@ set(SOURCES
   src/beambeamsystem.cpp
   src/starlightparticle.cpp
   src/gammaaluminosity.cpp
+  src/CLHEPrandomgenerator.cpp
   src/randomgenerator.cpp
   src/nucleus.cpp
   src/eventchannel.cpp
@@ -313,6 +326,7 @@ set(INCLUDES
   include/nucleus.h
   include/pythiadecayer.h
   include/PythiaStarlight.h
+  include/CLHEPrandomgenerator.h
   include/randomgenerator.h
   include/readinluminosity.h
   include/reportingUtils.h
