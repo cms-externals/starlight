@@ -42,20 +42,20 @@ If(CLHEP_CONFIG_EXE)
 Else(CLHEP_CONFIG_EXE)
 
 	FIND_PATH(CLHEP_INCLUDE_DIR NAMES CLHEP PATHS
-		${SIMPATH}/cern/clhep/include
-		${SIMPATH}/include
+		$ENV{CLHEP_PARAM_PATH}/cern/clhep/include
+		$ENV{CLHEP_PARAM_PATH}/include
 		NO_DEFAULT_PATH
 	)
 
 	FIND_PATH(CLHEP_BASE_DIR NAMES ClhepVersion.h PATHS
-		${SIMPATH}/cern/clhep
-		${SIMPATH}/include
+		$ENV{CLHEP_PARAM_PTH}/cern/clhep
+		$ENV{CLHEP_PARAM_PATH}/include
 		NO_DEFAULT_PATH
 	)
 
 	FIND_PATH(CLHEP_LIBRARY_DIR NAMES libCLHEP.so libCLHEP.dylib PATHS
-		${SIMPATH}/cern/clhep/lib
-		${SIMPATH}/lib
+		$ENV{CLHEP_PARAM_PATH}/cern/clhep/lib
+		$ENV{CLHEP_PARAM_PATH}/lib
 		NO_DEFAULT_PATH
 	)
 
