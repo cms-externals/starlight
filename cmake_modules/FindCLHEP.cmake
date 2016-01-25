@@ -1,8 +1,5 @@
 Find_Program(CLHEP_CONFIG_EXE NAMES clhep-config PATHS
-   /cvmfs/cms.cern.ch/slc6_amd64_gcc491/external/clhep/2.2.0.4/bin
-	${SIMPATH}/cern/clhep/bin
-	${SIMPATH}/cern/clhep/
-	${SIMPATH}/bin
+	$ENV{CLHEP_PARAM_PATH}/bin
 	NO_DEFAULT_PATH
 )
 
