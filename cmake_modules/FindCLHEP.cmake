@@ -1,8 +1,5 @@
 Find_Program(CLHEP_CONFIG_EXE NAMES clhep-config PATHS
-   /cvmfs/cms.cern.ch/slc6_amd64_gcc491/external/clhep/2.2.0.4/bin
-	${SIMPATH}/cern/clhep/bin
-	${SIMPATH}/cern/clhep/
-	${SIMPATH}/bin
+	$ENV{CLHEP_PARAM_PATH}/bin
 	NO_DEFAULT_PATH
 )
 
@@ -45,20 +42,20 @@ If(CLHEP_CONFIG_EXE)
 Else(CLHEP_CONFIG_EXE)
 
 	FIND_PATH(CLHEP_INCLUDE_DIR NAMES CLHEP PATHS
-		${SIMPATH}/cern/clhep/include
-		${SIMPATH}/include
+		$ENV{CLHEP_PARAM_PATH}/cern/clhep/include
+		$ENV{CLHEP_PARAM_PATH}/include
 		NO_DEFAULT_PATH
 	)
 
 	FIND_PATH(CLHEP_BASE_DIR NAMES ClhepVersion.h PATHS
-		${SIMPATH}/cern/clhep
-		${SIMPATH}/include
+		$ENV{CLHEP_PARAM_PATH}/cern/clhep
+		$ENV{CLHEP_PARAM_PATH}/include
 		NO_DEFAULT_PATH
 	)
 
 	FIND_PATH(CLHEP_LIBRARY_DIR NAMES libCLHEP.so libCLHEP.dylib PATHS
-		${SIMPATH}/cern/clhep/lib
-		${SIMPATH}/lib
+		$ENV{CLHEP_PARAM_PATH}/cern/clhep/lib
+		$ENV{CLHEP_PARAM_PATH}/lib
 		NO_DEFAULT_PATH
 	)
 
