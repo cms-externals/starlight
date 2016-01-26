@@ -162,22 +162,21 @@ else()
   add_definitions(-D'SVN_VERSION=\"\"')
 endif()
 
-
 # setup doxygen
-find_package(Doxygen)
-if(NOT DOXYGEN_FOUND)
-  message(WARNING "Cannot find Doxygen. No HTML documentation will be generated.")
-else()
-  set(DOXYGEN_TARGET  "doxygen")
-  set(DOXYGEN_DOC_DIR "${CMAKE_SOURCE_DIR}/doxygen")
-  set(DOXYGEN_CONF    "${CMAKE_SOURCE_DIR}/starlightDoxyfile.conf")
-  message(STATUS "Run 'make ${DOXYGEN_TARGET}' to create Doxygen documentation files in '${DOXYGEN_DOC_DIR}'")
-  add_custom_target(${DOXYGEN_TARGET}
-    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_CONF}
-    DEPENDS ${DOXYGEN_CONF}
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-		)
-endif()
+#find_package(Doxygen)
+#if(NOT DOXYGEN_FOUND)
+#  message(WARNING "Cannot find Doxygen. No HTML documentation will be generated.")
+#else()
+#  set(DOXYGEN_TARGET  "doxygen")
+#  set(DOXYGEN_DOC_DIR "${CMAKE_SOURCE_DIR}/doxygen")
+#  set(DOXYGEN_CONF    "${CMAKE_SOURCE_DIR}/starlightDoxyfile.conf")
+#  message(STATUS "Run 'make ${DOXYGEN_TARGET}' to create Doxygen documentation files in '${DOXYGEN_DOC_DIR}'")
+#  add_custom_target(${DOXYGEN_TARGET}
+#    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_CONF}
+#    DEPENDS ${DOXYGEN_CONF}
+#    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+#		)
+#endif()
 
 # setup CLHEP
 option (ENABLE_CLHEP "Enable compilation against" OFF)
